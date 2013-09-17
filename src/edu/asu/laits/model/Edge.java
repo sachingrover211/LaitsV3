@@ -1,5 +1,5 @@
 package edu.asu.laits.model;
-
+ 
 import java.awt.Color;
 import java.util.Set;
 import java.util.SortedMap;
