@@ -86,7 +86,7 @@ public class NewNodeDescPanel extends JPanel{
   }
   public void initPanel(){
       if(ApplicationContext.isStudentMode() || 
-              ApplicationContext.isCoachedMode()){
+              ApplicationContext.isCoachedMode() || ApplicationContext.isTestMode()){
           this.nodeNameTextField.setEditable(false);
           this.quantityDescriptionTextField.setEditable(false);
           initTree();

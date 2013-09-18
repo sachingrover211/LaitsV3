@@ -204,6 +204,9 @@ public class ApplicationContext {
   public static boolean isAuthorMode(){
       return (appMode.equals(AppMode.AUTHOR));
   }
+  public static boolean isTestMode(){
+      return (appMode.equals(AppMode.TEST));
+  }
 
   public static boolean isStudentMode(){
       return (appMode.equals(AppMode.STUDENT));

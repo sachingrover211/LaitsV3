@@ -29,7 +29,7 @@ public enum AppMode {
     STUDENT("Student"),
     COACHED("Coached"),
     TEST("Test"),
-    UNDEFINED("Undefined");
+    UNDEFINED("Undefined");// Not needed;
     
     private String value;
 

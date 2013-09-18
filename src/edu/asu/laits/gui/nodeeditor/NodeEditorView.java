@@ -338,7 +338,7 @@ public class NodeEditorView extends javax.swing.JDialog {
     }
 
     /**
-     * Method responsible for Enabling and Disabling Check/Giveup buttons based
+     * Method responsible for Enabling and Disabling Check/Give up buttons based
      * on the use case
      */
     private void setCheckGiveupButtons() {
