@@ -21,6 +21,7 @@
 package edu.asu.laits.model;
 
 import edu.asu.laits.editor.ApplicationContext;
+import edu.asu.laits.gui.menus.ModelMenu;
 import java.util.List;
 import java.io.File;
 import java.io.FileReader;
@@ -33,6 +34,9 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
+import java.io.*;
+import javax.xml.parsers.*;
+import org.xml.sax.*;
 
 /**
  *
@@ -94,6 +98,8 @@ public class TaskSolutionReader {
         String solutionFilePath = "Task/Task"+taskId+".xml";
         Document document = null;
         SAXReader reader = new SAXReader();
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
         InputStream in = getClass().getResourceAsStream(solutionFilePath);
         //File file = new File(getClass().getResource(solutionFilePath).toURI());
         //File file = new File(solutionFilePath);
@@ -101,11 +107,14 @@ public class TaskSolutionReader {
         String resourceURL = ApplicationContext.taskLoaderURL + taskId;
         System.out.println("Resource URL "+resourceURL);
         logs.info("Task URL : "+resourceURL);
-        document = reader.read(new URL(resourceURL));
-        
+        if(ApplicationContext.getCurrentTaskLocation().equals("server")){
+            document = reader.read(new URL(resourceURL));
+        }else{
+            document = (Document)builder.parse(new InputSource(new StringReader(ModelMenu.graph)));//need to ensure author's graph is loaded when not in author mode or use a different solution
+        }
+        System.out.println("***\n**\nDocument:\n" + document.toString());//Delete this line. I may need to put this code elsewhere, it may not be where the xml is read and sent from.
         return document;
-    }
-    
+    } 
     
     private void fillTaskParams(TaskSolution solution, Element rootNode){
         solution.setTaskName(rootNode.elementTextTrim("TaskName"));

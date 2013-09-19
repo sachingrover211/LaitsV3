@@ -40,6 +40,7 @@ public class ApplicationContext {
   private static boolean isValid = false;
   private static TaskSolution correctSolution;
   private static String currentTaskID;
+  private static String currentTaskLocation;
   private static boolean isProblemSolved = false;
   public static String taskLoaderURL;
   private static int currentOrder = 1;
@@ -170,6 +171,14 @@ public class ApplicationContext {
   
   public static void setCurrentTaskID(String uid){
     currentTaskID = uid;
+  }
+  
+  public static String getCurrentTaskLocation(){
+    return currentTaskLocation;
+  }
+  
+  public static void setCurrentTaskLocation(String location){
+    currentTaskLocation = location;
   }
   
   public static boolean isProblemSolved(){

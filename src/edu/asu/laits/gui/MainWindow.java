@@ -489,7 +489,8 @@ public class MainWindow extends JFrame {
     private void loadTask() {
         try {
             String task = ApplicationContext.getCurrentTaskID();
-            mainMenu.getFileMenu().openTaskById(task);
+            String taskLocation = ApplicationContext.getCurrentTaskLocation();
+            mainMenu.getFileMenu().openTaskById(task, taskLocation);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -507,8 +508,8 @@ public class MainWindow extends JFrame {
         String xmlString = "";
         HttpAppender sessionLoader = new HttpAppender();
         try {
-            //if user is in AUTHOR mode save solution in server
-            if (ApplicationContext.isAuthorMode()) {
+            //if user is in AUTHOR mode load problem from server
+            if (ApplicationContext.isAuthorMode() || ApplicationContext.getCurrentTaskLocation().equals("database")) {
                 String xmlAuthorString = sessionLoader.saveGetSession("author_load", ApplicationContext.getRootURL().concat("/save_solution.php"),
                         ApplicationContext.getUserID(), ApplicationContext.getSection(), ApplicationContext.getCurrentTaskID(), "", "");
                 ModelMenu.graph = xmlAuthorString;
