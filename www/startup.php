@@ -2,6 +2,7 @@
 $username = $_POST['username'];
 $mode = $_POST['mode'];
 $problem_id = $_POST['problem_id'];
+$problem_loc = $_POST['problem_loc'];
 $section = $_POST['section'];
 
 header("Content-Disposition: attachment; filename=\"laits-$problem_id.jnlp\"");
@@ -46,6 +47,7 @@ foreach (glob("lib/*.jar") as $filename){
 echo "        <property name=\"jnlp.username\" value=\"$username\"/>\n";
 echo "        <property name=\"jnlp.mode\" value=\"$mode\" />\n";
 echo "        <property name=\"jnlp.problem\" value=\"$problem_id\"/>\n";
+echo "        <property name=\"jnlp.location\" value=\"$problem_loc\"/>\n";
 echo "        <property name=\"jnlp.section\" value=\"$section\"/>\n";
 echo "        <property name=\"jnlp.server\" value=\"$codebase\"/>\n";
 ?>

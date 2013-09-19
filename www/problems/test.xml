@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Task phase="" type="">
+    <TaskName/>
+    <TaskDescription/>
+    <URL/>
+    <StartTime>0</StartTime>
+    <EndTime>10</EndTime>
+    <Units>Days</Units>
+    <NodeCount>3</NodeCount>
+    <Nodes>
+        <Node type="flow" name="Sonya and Brandon" extra="no">
+            <CorrectDescription>Married.</CorrectDescription>
+            <Plan>UNDEFINED</Plan>
+            <Inputs>
+                <Name>Aliya</Name>
+                <Name>Levi</Name>
+            </Inputs>
+            <Outputs/>
+            <Equation>Aliya    Levi</Equation>
+            <InitialValue>0.0</InitialValue>
+        </Node>
+        <Node type="constant" name="Aliya" extra="no">
+            <CorrectDescription>Daughter.</CorrectDescription>
+            <Plan>UNDEFINED</Plan>
+            <Inputs/>
+            <Outputs>
+                <Node name="Sonya and Brandon"/>
+            </Outputs>
+            <Equation>0.0</Equation>
+            <InitialValue>0.0</InitialValue>
+        </Node>
+        <Node type="constant" name="Levi" extra="no">
+            <CorrectDescription>Son.</CorrectDescription>
+            <Plan>UNDEFINED</Plan>
+            <Inputs/>
+            <Outputs>
+                <Node name="Sonya and Brandon"/>
+            </Outputs>
+            <Equation>1.0</Equation>
+            <InitialValue>1.0</InitialValue>
+        </Node>
+    </Nodes>
+    <DescriptionTree>
+        <Node level="root">
+            <Description>Married</Description>                 
+            <Node level="leaf">
+                <Description>.</Description>
+                <NodeName>Sonya and Brandon</NodeName>
+            </Node>
+        </Node>
+        
+        <Node level="root">
+            <Description>Daughter</Description>                 
+            <Node level="leaf">
+                <Description>.</Description>
+                <NodeName>Aliya</NodeName>
+            </Node>
+        </Node>
+        
+        <Node level="root">
+            <Description>Son</Description>                 
+            <Node level="leaf">
+                <Description>.</Description>
+                <NodeName>Levi</NodeName>
+            </Node>
+        </Node>
+        
+    </DescriptionTree>
+</Task>
